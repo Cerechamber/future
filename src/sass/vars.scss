@@ -1,0 +1,141 @@
+$color-blue: #4673ab;
+$color-red-lighten: #ff743d;
+$color-gray: #a7a9af;
+$main-font-size: 13px;
+$color-gray-lighten: #e3e5eb;
+$color-gray-middle: #7f8686;
+$color-gray-last: #dbdee6;
+
+$color-font: #37373F;
+$color-font-dop: #B3B3B3;
+$color-orange: #FC9B09;
+$color-link: #5286EC;
+
+@mixin tel($url, $padding) {
+	background-image: $url;
+	background-repeat: no-repeat;
+	padding-left: $padding;
+	margin-top: 4px;
+}
+
+@mixin id-headers($width, $height) {
+	margin-top: 33px;
+	width: $width;
+	height: $height;
+	position: relative;
+}
+
+@mixin position-abs($top, $left, $right, $bottom) {
+	position: absolute;
+	top: $top;
+	left: $left;
+	right: $right;
+	bottom: $bottom;
+}
+
+@mixin font-stylez($size, $weight, $style) {
+	font-size: $size;
+	font-weight: $weight;
+	font-style: $style;
+}
+
+@mixin box-size($width, $height) {
+	width: $width;
+	height: $height;
+}
+
+@mixin background-pos($image, $repeat, $pos) {
+	background-image: $image;
+	background-repeat: $repeat;
+	background-position: $pos;
+}
+
+@mixin font-declaration($style, $weight, $url, $url1, $url2, $url3, $url4, $url5, $url6, $url7) {
+	font-family: 'Roboto';
+  font-style: $style;
+  font-weight: $weight;
+  src: $url; /* IE9 Compat Modes */
+  src: $url1, $url2, $url3, $url4, $url5 $url6, $url7;
+}
+
+@mixin button-style($radius, $text, $padheight, $padwidth, $color, $bcolor, $border-color) {
+	border-radius: $radius;
+	cursor: pointer;
+	outline-width: 0;
+	text-transform: $text;
+	padding: $padheight $padwidth;
+	color: $color;
+	background-color: $bcolor;
+	border-bottom: 4px $border-color solid;
+}
+
+
+@mixin icons-style($img, $h, $p-l, $tr) {
+	    @include background-pos(url($img), no-repeat, left);
+		height: $h;
+		padding-left: $p-l;
+		cursor: pointer;
+		 p {
+		 	transform: translateY($tr);
+		 	@include font-stylez(14px, 500, normal);
+		 }
+}
+
+@mixin meet-blocks($url) {
+	height: 62px;
+	@include background-pos(url($url), no-repeat, left);
+	padding-left: 79px;
+}
+
+@mixin marpad($mar, $pad) {
+	margin: $mar;
+	padding: $pad;
+}
+
+%torture {
+	@include font-stylez(14px, normal, normal);
+		color: $color-font-dop;
+		padding: 0 0 10px 23px;
+		@include background-pos(url("../../images/galka.svg"), no-repeat, left);
+		@include box-size(290px, 16px);
+}
+
+%forFD {
+	@include font-stylez(14px, normal, normal);
+			margin-top: 22px;
+			color:  $color-font-dop;
+}
+
+
+
+%forFlex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+%sliders {
+	z-index: 201;
+	cursor: pointer;
+	outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+}
+
+%info-tyk {
+	text-decoration: underline;
+	color: $color-blue;
+	cursor: pointer;
+	margin-top: 4px;
+}
+
+%days {
+	@include box-size(50px, 32px);
+	@include font-stylez($main-font-size, 300, normal);
+	z-index: 1;
+	text-align: center;
+	span {
+		@include font-stylez(20px, 500, normal);
+		color: $color-orange;
+	}
+}

@@ -1,0 +1,23 @@
+.popup(class="container")
+	img(src="../images/cross.svg" alt="pic")
+	h2 Бронирование
+	form(name="bron" method="post" action="bron.php" class=['d-flex', 'justify-content-center'])
+		.form-group
+			label Дата<span>*</span>
+				input(type="date" id="date" name="date" class=['form-control', 'datepicker'] value="2020-06-01")
+			label Email<span>*</span>
+				input(type="email" name="mail" class="form-control" placeholder="Электронная почта" required)
+			label Имя<span>*</span>
+				input(type="text" name="name" class="form-control" placeholder="Иван" required)
+			label Фамилия<span>*</span>
+				input(type="text" name="fam" class="form-control" placeholder="Громов" required)
+			label Телефон<span>*</span>
+				input(type="tel" id="tel" name="tel" class="form-control" placeholder="+7 (905) 184-81-40")
+			label Данные карты<span>*</span>
+				input(type="text" id="card1" name="card1" class=['form-control', 'big'] placeholder="1111-2222-3333-4444" required)
+				input(type="text" id="card2" name="card2" class=['form-control', 'little'] placeholder="Срок действия")
+				input(type="text" id="card3" name="card3" class=['form-control', 'little', 'little-last'] placeholder="CVV")
+			.checkbox
+				input(type="checkbox" name="check" id="check" required)
+				label(class="forcheck" for="check") Я согласен<br class="check-hide"> с пользовательским<br> соглашением<br class="check-hide"> и публичной офертой
+			input(type="submit" name="submit" class=['btn', 'btn-lg', 'btn-tangerine']  value="Забронировать")

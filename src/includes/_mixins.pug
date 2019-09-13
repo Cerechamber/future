@@ -1,0 +1,28 @@
+mixin feed(img, h2, podpis, little, comment, date)
+  .feed
+    .row
+      .feed-up(class=['col-11', 'd-flex', 'justify-content-start', 'align-items-center'])
+        img(src=img alt="pic")
+        div(class='align-self-start')
+          h2(class=['feed-h2']) #{h2}
+          p(class=['feed-p']) #{podpis}
+    .row
+      .feed-stars(class=['d-flex', 'justify-content-start'])
+        .stars
+          - for (var x = 0; x < 5; x++)
+            img(src="../images/star.svg" alt="pic")
+        .stars-hide
+          - for (var x = 0; x < 6; x++)
+            img(src="../images/star.svg" alt="pic")
+        p(class="feed-little") #{little}
+    p(class=['feed-little', 'little-hide']) #{little}
+    .feed-comment(class=['border', 'border-helgray', 'border-left-0', 'border-right-0', 'border-top-0', 'col-10'])
+      p #{comment}
+      p(class="feed-date") #{date}
+    .feed-comment-hide(class=['border', 'border-helgray', 'border-left-0', 'border-right-0', 'border-top-0', 'col-12'])
+      p #{comment}
+      p(class="feed-date") #{date}
+
+
+mixin meet(pl1, pl2, pl3)
+  .meet-block(class!=attributes.class) #{pl1}<br><span>#{pl2}</span><button type='button' class="btn btn-link">#{pl3}</button>

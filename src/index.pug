@@ -1,0 +1,261 @@
+include includes/_mixins.pug
+doctype html
+html(lang="ru")
+  head
+    title Тестовое задание
+    meta(http-equiv="Content-type" content="text/html; charset=utf-8")
+    meta(name="description" content="Описание страницы")
+    meta(name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    meta(http-equiv="X-UA-Compatible" content="ie=edge")
+  body
+    .dark-bg
+    include includes/_popup.pug
+    .header
+      .container(class=['d-flex', 'justify-content-sm-start', 'justify-content-between', 'align-items-sm-center align-items-baseline'])
+        img(src="../images/logo.svg" alt="pic")
+        p <span>Телефон:</span>8(800)-123-12-12
+        button(class=['header-little-p', 'btn', 'btn-link']) Москва
+        a(href="#")
+          img(src="../images/fig.svg" class="header-little-i" alt="pic")
+
+    .hel
+      .container
+        h1 Эксклюзивная <span>фотосессия</span> при полете <br class="br-little">на вертолете
+        .rec
+          p Стоимость:
+          img(src="../images/ruble.svg" alt="pic")
+          .round %
+        button(class=['btn', 'btn-lg', 'btn-outline-light'] id="summon-popup" type="button") Забронировать место
+
+    main(class="main")
+      section(id="s-bron")
+        .container
+          .row
+            .leftmain(class=(['col-md-6', 'col-12', 'order-md-1', 'order-2']))
+              h1 Фотосессия <br> в вертолете
+              #abouthel 
+               | Полет на вертолете это прекрасная возможность получить новые ощущения!
+               |  А наш замечательный фотограф запечатлит лучшие моменты
+
+              .icons(class=['d-flex', 'flex-column', 'justify-content-between'])
+                .clock1
+                  include includes/svg.pug
+                  p  3 часа съемки
+                .clock
+                  p  3 часа съемки
+
+                .photic
+                  p Более 50 фотографий
+                .money
+                  p от 850$
+
+                .map
+                  p Москва
+
+                .speech
+                  p Готовы ответить на любые вопросы
+
+                .starblock(class=['border', 'border-helgray', 'border-right-0', 'border-left-0'])
+                  div Более <span>50</span> отзывов с оценкой
+                  - for (var x = 0; x < 5; x++)
+                    img(src="../images/star.svg")
+
+            .rightmain(class=(['col-md-6', 'col-12', 'order-md-2', 'order-1']))
+              h1(id="h1-hide") Фотосессия <br> в вертолете
+              .play(data-youtube="eFGv7ekh36w")
+                img(src="../images/play.svg" id="play" alt="pic")
+                img(src="../images/kiss.jpg" id="kiss" class="img-fluid" alt="pic")
+              p(class="text-hide") Полет на вертолете это прекрасная возможность получить новые ощущения! А наш замечательный фотограф запечатлит лучшие моменты!
+
+      section(id="s-photo")
+        .photo-header
+          .container(class=['d-flex', 'justify-content-center', 'justify-content-md-start', 'align-items-center'])
+            h2(id="photo-h-1") Фотографии пакета:
+            h2(id="photo-h-2") Фотографии<br>пакета
+        .photo-content
+          .container(id="photosm")
+            #carouselExampleControls(class="carousel slide" data-ride="carousel")
+              #wrapper_carousel
+                .carousel-inner
+                  .carousel-item(class="active")
+                    img(class=['d-block', 'w-100'] src="../images/girl.jpg" alt="slide")
+                  .carousel-item
+                    img(class=['d-block', 'w-100'] src="../images/kiss.jpg" alt="slide")
+                  .carousel-item
+                    img(class=['d-block', 'w-100'] src="../images/first.jpg" alt="slide")
+                  .carousel-item
+                    img(class=['d-block', 'w-100'] src="../images/inside.jpg" alt="slide")
+                a(class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev")
+                  span(class="carousel-control-prev-icon" aria-hidden="true")
+                  span(class="sr-only") Previous
+                a(class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next")
+                  span(class="carousel-control-next-icon" aria-hidden="true")
+                  span(class="sr-only") Next
+          .container(id="photolg")
+            .first-photo-block(class=['d-flex'])
+              each val in ['girl', 'inside', 'kiss', 'first']
+                img(src="../images/" + val + ".jpg" class="img-fluid" alt="pic")
+            .second-photo-block(class=['d-flex'])
+              each val in ['kiss', 'first', 'inside', 'kiss']
+                img(src="../images/" + val + ".jpg" class="img-fluid" alt="pic")
+        .photo-footer
+          .container(class=['d-flex', 'justify-content-center', 'align-items-center', 'border', 'border-helgray', 'border-left-0', 'border-right-0', 'border-top-0'])
+            img(src="../images/arrow.svg" alt="pic")
+            button(type='button' class=['btn', 'btn-link'] id="show-more-photos") Показать все фото
+            img(src="../images/arrow.svg" alt="pic")
+        .container(id="hidden-photos")
+          .more-photos(class=['d-flex', 'justify-content-around', 'justify-content-lg-between', 'align-items-center', 'flex-wrap'])
+            each val in ['girl', 'inside', 'kiss', 'first', 'girl', 'inside', 'kiss', 'first', 'girl', 'inside', 'kiss', 'first', 'girl', 'inside', 'kiss', 'first']
+              img(src="../images/" + val + ".jpg" class="img-fluid" alt="pic")
+
+
+      section(class="about")
+        .container
+          .row(class="justify-content-between")
+            .first-about-block(class=['col-md-6', 'col-12', 'order-2', 'order-md-1'])
+              h2 Об организаторе:
+              p 
+                | Всем привет! Я фотограф Мария! И по мимо фотосъемки я так же являюсь членом группы экспертов туристической отрасли,
+                | которые хорошо разбираются в маркетинге, операциях и услугах обслуживания клиентов, специализирующихся на совместном использовании и частных турах.
+              p
+                | Сначала мы (я и моя команда) изучаем интересы клиентов, а затем придумываем подходящее решение, которое соответствует бюджету 
+                |  и планам клиента. Мы никогда не зависим от субпоставщиков и не свяжемся…
+                | <br><button type='button' class="btn btn-link">Читать еще</button>
+                |  <img src="../images/arrow.svg" alt="pic" />
+              h2 Что я предоставлю:
+              p(id='p-hid')
+                | Встречу вас на машине после длительного перелёта.  Качественный подбор места и локации для вашей съемки.
+                |  При необходимости всегда возможно прерваться на обед/ужин. Более <span class="bold-span">50</span> фотографий на выходе с обработкой и замечательные впечатления о Дубае ! 
+                | <br><button type='button' class="btn btn-link">Читать еще</button>
+                | <img src="../images/arrow.svg" alt="pic" />
+
+            .second-about-block(class=['col-md-6', 'col-12', 'order-1', 'order-md-2', 'd-flex', 'justify-content-center', 'justify-content-md-end', 'align-items-start'])
+              figure
+                img(src="../images/avatar.png" alt="pic")
+                figcaption
+                  h2 Марина Иванова
+                  p Фотограф
+                  button(type='button' class=['btn', 'btn-link']) Показать больше<br>информации о фотографе
+              img(src="../images/heart.svg" id="heart" alt="pic")
+
+      section
+        .container(class=['bron-header', 'd-flex', 'justify-content-md-start', 'justify-content-center', 'align-items-end'])
+          h2 Доступная съемка<br>в ближайшее время:
+        .container(id="bron")
+          .bron-block(class=['border', 'border-helgray'])
+            .level0(class=['d-flex', 'align-items-center', 'justify-content-md-start', 'justify-content-center', 'border', 'border-helgray', 'border-left-0', 'border-right-0', 'border-top-0'])
+              p Пятница, <span>14</span> сентября
+            .level(class=['row', 'border', 'border-helgray', 'border-left-0', 'border-right-0', 'border-top-0', 'd-flex', 'justify-content-between'])
+              .level-left(class=['d-flex', 'flex-column', 'justify-content-around', 'col-12', 'col-md-6'])
+                p 15:00 - 18:00
+                img(src="../images/rublebl.svg" alt="pic")
+                p Осталось — 1 место
+              .level-right(class=['col-12', 'col-md-6'])
+                button(class=['btn', 'btn-md', 'btn-outline-tangerine'] type='button') Выбрать
+            .level(class=['d-flex', 'justify-content-between', 'row'] id="bord")
+              .level-left(class=['d-flex', 'flex-column', 'justify-content-around', 'col-12', 'col-md-6'])
+                p 19:00 - 22:00
+                img(src="../images/rublebl.svg" alt="pic")
+                p Осталось — 1 место
+              .level-right(class=['col-12', 'col-md-6'])
+                button(class=['btn', 'btn-md', 'btn-outline-tangerine'] type='button') Выбрать
+            .starblock(class="starblock-bron")
+                  p Более <span class="bold-span">150</span> отзывов с оценкой
+                  - for (var x = 0; x < 5; x++)
+                    img(src="../images/star.svg" alt="pic")
+
+      section(class="yandex")
+        iframe(src="https://yandex.ru/map-widget/v1/?um=constructor%3Ab3a6f5b5226454c103d7d53c29a029cc75409f20e25055be2930ae23e5fc1142&amp;source=constructor" frameborder="0" id="map")
+        .container
+          .meet(class=['d-flex', 'flex-column', 'justify-content-between', 'border', 'border-helgray'])
+            +meet('Где встречаемся?', 'Москва')(class="meet-block1")
+            +meet('Время съемки', '3часа')(class="meet-block2")
+            +meet('Мест осталось:', '2 места')(class="meet-block3")
+            +meet('Мария Иванова', 'Фотограф', 'Показать больше информации')(class="meet-block4")
+
+      section
+        .meet-hide(class=['border', 'border-helgray'])
+          .container
+            .row(class=['align-items-center', 'justify-content-around', 'meet-hide-up'])
+              img(src="../images/arrow.svg" id="meet-hide-arr-1" alt="pic")
+              img(src="../images/meet1.svg" id="meet-hide-1" alt="pic")
+              img(src="../images/arrow.svg" id="meet-hide-arr-2" alt="pic")
+            #meet-hide-m
+              h2 Где встречаемся?
+              p Москва
+              .meet-hide-dotts
+                img(src="../images/kr.svg" alt="pic")
+                img(src="../images/kr2.svg" alt="pic")
+                img(src="../images/kr2.svg" alt="pic")
+            .meet-hide-down
+              h2 Мария Иванова
+              p Фотограф
+              button(class=['btn', 'btn-link'] type="button") Показать больше информации о&nbsp;фотографе
+
+
+
+    section(class="feedback")
+      .container
+        h2(id="otzyv") Отзывы<span id="dot-del">:</span>
+        +feed("../images/feed1.png", 'Валерия Антонова', 'Арт-директор', 'Супер! Я бы заказала съемку снова!',
+          'Хотим выразить огромную благодарность вашей компании! Получили море ощущений, все прошло просто замечательно. '+ 
+          'Фотки получились великолепные, отдельное спасибо фотографу!',
+          '27 Апреля, 2019г.')
+        +feed('../images/feed2.png', 'Виталий Петров', 'Фотограф', 'Супер! Я бы заказал съемку снова!',
+          'Восторг! :) Очень понравилось :) Захватили последний теплый, солнечный октябрьский день :)' + 
+          'Впечатлило всё: сам вертолет, взлет, полёт, приземление. Организация полёта отличная. Спасибо!', '19 Апреля, 2019г.')
+        +feed('../images/feed3.png', 'Джим Керри', null, 'Супер! Я бы заказал съемку снова!',
+          'Круто-круто-круто!!! Отмечали мой ДэРэ. Отлично провели время!!! Кстати закуски были вкусными и сытными))Мы ' +
+          'с собой ничего не брали. Сами много фоткались,поэтому воспоминания обалденные!!!)) А еще нам всем напечатали по сертификату воздухоплавателя,' +
+          'правда некоторые ленятся за ним съездить))) Но все равно приятно. Короче, Презентстар – проверено. Оценка: пять!', '11 Апреля, 2019г.')
+
+      .feed-footer
+        .container(class=['d-flex', 'justify-content-center', 'align-items-center'])
+          img(src="../images/arrow.svg" id="feed-footer-arr1" alt="pic")
+          button(type='button' class=['btn', 'btn-link'] id="allfeeds") Показать Все <span id="showNum"></span>
+          img(src="../images/arrow.svg" id="feed-footer-arr2" alt="pic")
+      .container(id="hidden-comments")
+        +feed("../images/feed1.png", 'Валерия Антонова', 'Арт-директор', 'Супер! Я бы заказала съемку снова!',
+          'Хотим выразить огромную благодарность вашей компании! Получили море ощущений, все прошло просто замечательно. '+ 
+          'Фотки получились великолепные, отдельное спасибо фотографу!',
+          '27 Апреля, 2019г.')
+        +feed('../images/feed2.png', 'Виталий Петров', 'Фотограф', 'Супер! Я бы заказал съемку снова!',
+          'Восторг! :) Очень понравилось :) Захватили последний теплый, солнечный октябрьский день :)' + 
+          'Впечатлило всё: сам вертолет, взлет, полёт, приземление. Организация полёта отличная. Спасибо!', '19 Апреля, 2019г.')
+        +feed('../images/feed3.png', 'Джим Керри', null, 'Супер! Я бы заказал съемку снова!',
+          'Круто-круто-круто!!! Отмечали мой ДэРэ. Отлично провели время!!! Кстати закуски были вкусными и сытными))Мы ' +
+          'с собой ничего не брали. Сами много фоткались,поэтому воспоминания обалденные!!!)) А еще нам всем напечатали по сертификату воздухоплавателя,' +
+          'правда некоторые ленятся за ним съездить))) Но все равно приятно. Короче, Презентстар – проверено. Оценка: пять!', '11 Апреля, 2019г.')
+        +feed("../images/feed1.png", 'Валерия Антонова', 'Арт-директор', 'Супер! Я бы заказала съемку снова!',
+          'Хотим выразить огромную благодарность вашей компании! Получили море ощущений, все прошло просто замечательно. '+ 
+          'Фотки получились великолепные, отдельное спасибо фотографу!',
+          '27 Апреля, 2019г.')
+        +feed('../images/feed2.png', 'Виталий Петров', 'Фотограф', 'Супер! Я бы заказал съемку снова!',
+          'Восторг! :) Очень понравилось :) Захватили последний теплый, солнечный октябрьский день :)' + 
+          'Впечатлило всё: сам вертолет, взлет, полёт, приземление. Организация полёта отличная. Спасибо!', '19 Апреля, 2019г.')
+        +feed('../images/feed3.png', 'Джим Керри', null, 'Супер! Я бы заказал съемку снова!',
+          'Круто-круто-круто!!! Отмечали мой ДэРэ. Отлично провели время!!! Кстати закуски были вкусными и сытными))Мы ' +
+          'с собой ничего не брали. Сами много фоткались,поэтому воспоминания обалденные!!!)) А еще нам всем напечатали по сертификату воздухоплавателя,' +
+          'правда некоторые ленятся за ним съездить))) Но все равно приятно. Короче, Презентстар – проверено. Оценка: пять!', '11 Апреля, 2019г.')
+
+    footer(class="footer-up")
+      .container(class=['d-flex', 'justify-content-between', 'align-items-center'])
+        a(href="#")
+          img(src="../images/logo.svg" class="footer-logo" alt="pic")
+        div(id="footer-up-seti")
+          each val in ['vk', 'fb', 'inst', 'ru', 'arrow']
+            img(src="../images/" + val + ".svg" class="seti" alt="pic")
+    footer(class="footer-down")
+      .container
+        .row(class=['justify-content-between', 'align-items-center'])
+          div(class=['col-12', 'col-md-5', 'd-flex', 'justify-content-between'])
+            div
+              img(src="../images/mc.svg" class="f-down-img" alt="pic")
+              img(src="../images/visa.svg" class="f-down-img" alt="pic")
+              img(src="../images/pp.svg" class=['f-down-img', 'footer-down-show'] alt="pic")
+            div(id="f-sec-div")
+              img(src="../images/ru.svg" class=['seti', 'ru-righter'] alt="pic")
+              img(src="../images/arrow.svg" class=['seti'] alt="pic")
+          .f-down-p(class=['col-md-7', 'col-12'])
+            p Тех. поддержка: 8(800)700-00-00
+            p © 2018 HELYFLY. All Rights Reserved.

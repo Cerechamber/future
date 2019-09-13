@@ -1,0 +1,145 @@
+@import "vars";
+ * {
+     margin: 0;
+     padding: 0;
+     border-width: 0;
+}
+ .dark-bg {
+     display: none;
+     background-image: url("../../images/bg.png");
+     @include box-size(100%, 100%);
+     z-index: 100;
+     position: fixed;
+}
+ .popup {
+     @include box-size(615px, 890px);
+     background: white;
+     display: none;
+     @include position-abs(220px, null, null, null);
+     border-radius: 7px;
+     z-index: 200;
+     h2 {
+         margin: 60px 0 30px 0;
+         @include font-stylez(22px, 600, normal);
+         text-align: center;
+         @media (max-width: 575px) {
+             margin: 50px 0 25px 0;
+             @include font-stylez(18px, 600, normal);
+        }
+    }
+     label {
+         display: block;
+         width: 420px;
+         @include font-stylez(16px, 500, normal);
+         span {
+             color: #c94042;
+        }
+    }
+     input {
+         @include box-size(420px, 44px);
+         display: block;
+         margin: 10px 0;
+         @include font-stylez(16px, normal, normal);
+         @media (max-width: 575px) {
+             @include box-size(270px, 44px);
+        }
+    }
+     .little {
+         @include box-size(210px, 44px);
+         transform: translateY(-19px);
+         display: inline;
+         @media (max-width: 575px) {
+             @include box-size(270px, 44px);
+        }
+    }
+     .little-last {
+         @media (max-width: 575px) {
+             transform: translateY(-38px);
+        }
+    }
+     #check {
+         width: 16px;
+         margin: 0 10px 0 0;
+         transform: translateY(-20px);
+         background-image: url('../../images/bg.png');
+         @media (max-width: 575px) {
+             transform: translateY(-40px);
+        }
+    }
+     .forcheck {
+         width: 330px;
+         transform: translate(35px, -40px);
+         text-indent: -35px;
+         @include font-stylez(16px, normal, normal);
+         @media (max-width: 575px) {
+             width: 270px;
+        }
+    }
+     .btn {
+         color: white;
+         @include font-stylez(16px, 600, normal);
+         @include box-size(390px, 72px);
+         margin: 0;
+         transform: translate(10px, 0px);
+         @media (max-width: 575px) {
+             @include box-size(250px, 50px);
+             @include font-stylez(14px, normal, normal);
+        }
+    }
+     img {
+         @include position-abs(22px, null, 23px, null);
+         cursor: pointer;
+         @media (max-width: 575px) {
+             width: 17px;
+             @include position-abs(16px, null, 17px, null);
+        }
+    }
+     @media (max-width: 767px) {
+         @include box-size(500px, 890px);
+    }
+     @media (max-width: 575px) {
+         @include box-size(290px, 950px);
+    }
+}
+ .form-group {
+     @media (max-width: 575px) {
+         width: 270px;
+    }
+}
+ .check-hide {
+     display: none;
+     @media (max-width: 575px) {
+         display: block;
+    }
+}
+ .calendar {
+     width: 200px;
+     height: 300px;
+}
+
+ input[type="checkbox"] {
+     display: none;
+}
+ .forcheck:before {
+     content: " ";
+     position: relative;
+     left: -30px;
+     top: 15px;
+     color: white;
+     display: block;
+     margin-right: 15px;
+     text-align: center;
+     @include box-size(20px, 20px);
+     background: $color-orange;
+     transform: translateY(7px);
+     text-indent: 0px;
+}
+ input:checked + label:before {
+     content: "✓";
+     position: relative;
+}
+/* disabled input:disabled + label:before {
+     background: #eee;
+     color: #aaa;
+}
+ */
