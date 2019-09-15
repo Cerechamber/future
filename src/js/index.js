@@ -1,10 +1,11 @@
 import 'jquery';
 import 'jquery-mask-plugin';
 import './../sass/styles.scss';
-import 'popper.js';//необходимо для js элементов
+import 'popper.js';
 import './custom/mycode';
-//import 'bootstrap-carousel-swipe';
-import './custom/custom';// здесь подключаем код для фичей бутстрапа, готовые части на сайте
+import './custom/custom';
+import './custom/jquery-ui';
+
 
 
 	

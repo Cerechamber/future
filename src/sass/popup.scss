@@ -143,3 +143,13 @@
      color: #aaa;
 }
  */
+
+
+#date {
+    @include background-pos(url("../../images/calen.jpg"), no-repeat, 93% center);
+    background-size: 30px;
+    @media (max-width: 575px) {
+        @include background-pos(url("../../images/kalendar.svg"), no-repeat, 93% center);
+
+    }
+    }

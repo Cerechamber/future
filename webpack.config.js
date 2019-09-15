@@ -16,6 +16,9 @@ const config = {
     filename: 'bundle.js',
     path: distPath
   },
+  optimization: {
+        minimize: true
+    },
   module: {
     rules: [{
       test: /\.html$/,
@@ -26,9 +29,6 @@ const config = {
       exclude: /(node_modules|bower_components)/,
       use: {
         loader: 'babel-loader',
-        options: {
-          presets: ['@babel/preset-env']
-        }
       }
     },
     {
@@ -104,12 +104,6 @@ const config = {
         $: 'jquery',
         JQuery: 'jquery',
         'window.JQuery': 'jquery'
-      }),
-      new webpack.ProvidePlugin({
-        'jquery-mask-plugin': 'jquery-mask-plugin.js'
-      }),
-      new webpack.ProvidePlugin({
-        'bootstrap-carousel-swipe': 'carousel-swipe.js'
       })
   ],
   devServer: {
