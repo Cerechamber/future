@@ -606,6 +606,7 @@
         }
          .feed-h2 {
              @include font-stylez(18px, 500, normal);
+             min-width: 160px;
              margin: 10px 0;
              @media (max-width: 767px) {
                  font-size: 16px;
